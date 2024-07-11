@@ -30,7 +30,7 @@ def predict():
     if prediction == 1:
         result = 'This is not spam mail'
     else:
-        result = 'Spam mail'
+        result = 'This is Spam mail'
 
     return render_template('index.html', prediction=result, input_mail=input_mail)
 
