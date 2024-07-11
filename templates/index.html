@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email Classification</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f0f0f0;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        form {
+            width: 50%;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        textarea {
+            width: 100%;
+            padding: 10px;
+            font-size: 14px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+        h2 {
+            margin-top: 20px;
+            color: #333;
+        }
+
+        p {
+            font-size: 16px;
+        }
+
+        .result-box {
+            width: 50%;
+            margin: 20px auto;
+            padding: 20px;
+            border: 2px solid #4CAF50;
+            border-radius: 5px;
+            background-color: #fff;
+        }
+
+        .result-box p {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>Email Classification</h1>
+    <form action="/predict" method="post">
+        <textarea name="input_mail" rows="4" cols="50" placeholder="Enter your email text here..."></textarea>
+        <br><br>
+        <input type="submit" value="Predict">
+    </form>
+    <br><br>
+    {% if prediction is not none %}
+    <div class="result-box">
+        <h2>Prediction:</h2>
+        <p><strong>Input Mail:</strong> {{ input_mail }}</p>
+        <p><strong>Prediction:</strong> {{ prediction }}</p>
+    </div>
+    {% endif %}
+</body>
+</html>
